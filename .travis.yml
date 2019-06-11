@@ -50,6 +50,7 @@ matrix:
         - OUR_CC=gcc-6 OUR_CXX=g++-6 OUR_GCOV=gcov-6
 
 install:
+    - mkdir -p $HOME/opt/bin
     - ln -s $(which $OUR_GCOV) $HOME/opt/bin/gcov
 
 script:
