@@ -8,6 +8,7 @@ addons:
         - libpam0g-dev
         - libssl-dev
         - libhwloc-dev
+        - hwloc
         - libxml2-dev
 
 matrix:
@@ -49,18 +50,11 @@ matrix:
         - OUR_CC=gcc-6 OUR_CXX=g++-6 OUR_GCOV=gcov-6
 
 install:
-    - wget -q -O hwloc.tar.gz https://github.com/open-mpi/hwloc/archive/hwloc-1.11.4.tar.gz
-    - tar -xzf hwloc.tar.gz
-    - mkdir $HOME/opt
-    - pushd hwloc-*/ && ./autogen.sh && ./configure --prefix=$HOME/opt && make && make install && popd
-    - export PKG_CONFIG_PATH=$HOME/opt/lib/pkgconfig:$PKG_CONFIG_PATH
-    - export LD_LIBRARY_PATH=$HOME/opt/lib:$LD_LIBRARY_PATH
-    - export PATH=$HOME/opt/bin:$PATH
     - ln -s $(which $OUR_GCOV) $HOME/opt/bin/gcov
 
 script:
     - ./autogen.sh
-    - CC=$OUR_CC CXX=$OUR_CXX ./configure --with-check --with-pam --enable-acct-x --enable-drmaa --enable-cgroups --with-hwloc-path=$HOME/opt
+    - CC=$OUR_CC CXX=$OUR_CXX ./configure --with-check --with-pam --enable-acct-x --enable-drmaa --enable-cgroups
     - make -j2 V=0
     - set -o pipefail
     - make check -k V=0 | tee checks.txt
