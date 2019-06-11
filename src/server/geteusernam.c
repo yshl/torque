@@ -347,7 +347,7 @@ bool is_user_allowed_to_submit_jobs(
     
   if (LOGLEVEL >= 10)
     {
-    sprintf(log_buf, "job id: %s - luser: %s", pjob->ji_qs.ji_jobid, luser);
+    snprintf(log_buf, sizeof(log_buf), "job id: %s - luser: %s", pjob->ji_qs.ji_jobid, luser);
     log_event(PBSEVENT_JOB, PBS_EVENTCLASS_JOB, __func__, log_buf);
     }
     

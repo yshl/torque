@@ -139,6 +139,7 @@ short disrss(
         }
       else
         locret = DIS_OVERFLOW;
+      /* fallthrough */
 
     case DIS_OVERFLOW:
       value = negate ? SHRT_MIN : SHRT_MAX;

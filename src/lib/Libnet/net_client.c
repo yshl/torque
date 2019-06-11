@@ -533,6 +533,7 @@ jump_to_check:
         }/* Interrupted system call */
       
       /* fall through to next case */
+      /* fallthrough */
 
     case EINVAL:		/* Invalid argument */
     
@@ -583,6 +584,7 @@ jump_to_check:
         
         goto retry;
         }
+      /* fallthrough */
       
     default:
       

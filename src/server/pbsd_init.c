@@ -2666,6 +2666,7 @@ int pbsd_init_job(
         }
 
       svr_setjobstate(pjob, JOB_STATE_COMPLETE, JOB_SUBSTATE_COMPLETE, FALSE);
+      /* fallthrough */
 
 
     case JOB_SUBSTATE_COMPLETE:

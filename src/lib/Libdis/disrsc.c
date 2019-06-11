@@ -140,6 +140,7 @@ signed char disrsc(
         }
       else
         locret = DIS_OVERFLOW;
+      /* fallthrough */
 
     case DIS_OVERFLOW:
       value = negate ? SCHAR_MIN : SCHAR_MAX;

@@ -2071,6 +2071,7 @@ void on_job_exit(
       pjob = NULL;
 
       /* NO BREAK, fall into stage out processing */
+      /* fallthrough */
 
     case JOB_SUBSTATE_RETURNSTD:
       /* this is a new substate to TORQUE 2.4.0.  The purpose is to provide a
@@ -2089,6 +2090,7 @@ void on_job_exit(
 
       preq = NULL;
       pjob = NULL;
+      /* fallthrough */
 
     case JOB_SUBSTATE_STAGEOUT:
 
@@ -2105,6 +2107,7 @@ void on_job_exit(
 
       preq = NULL;
       pjob = NULL;
+      /* fallthrough */
 
     case JOB_SUBSTATE_STAGEDEL:
 
@@ -2125,6 +2128,7 @@ void on_job_exit(
 
       preq = NULL;
       pjob = NULL;
+      /* fallthrough */
 
     case JOB_SUBSTATE_EXITED:
 
@@ -2148,6 +2152,7 @@ void on_job_exit(
 
       type = rc;
       pjob = NULL;
+      /* fallthrough */
 
     case JOB_SUBSTATE_COMPLETE:
 
@@ -2410,6 +2415,7 @@ void on_job_rerun(
         }
 
       /* NO BREAK, FALL THROUGH TO NEXT CASE, including the request */
+      /* fallthrough */
 
     case JOB_SUBSTATE_RERUN1:
 
@@ -2531,6 +2537,7 @@ void on_job_rerun(
         }
 
       /* NO BREAK - FALL INTO THE NEXT CASE */
+      /* fallthrough */
 
     case JOB_SUBSTATE_RERUN2:
 
@@ -2619,6 +2626,7 @@ void on_job_rerun(
         }
 
       /* NO BREAK, FALL THROUGH TO NEXT CASE */
+      /* fallthrough */
 
     case JOB_SUBSTATE_RERUN3:
 
@@ -3308,6 +3316,7 @@ int update_substate_from_exit_status(
           set_job_comment(pjob, pbse_to_txt(PBSE_CGROUP_CREATE_FAIL));
 
           // Fall through intentionally
+	  /* fallthrough */
         
         case JOB_EXEC_RETRY_PROLOGUE:
 
@@ -3320,6 +3329,7 @@ int update_substate_from_exit_status(
             }
 
           // Fall through intentionally
+	  /* fallthrough */
 
         case JOB_EXEC_RETRY:
 

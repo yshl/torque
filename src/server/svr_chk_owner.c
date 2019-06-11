@@ -447,7 +447,7 @@ int authenticate_user(
   if (strncmp(preq->rq_user, pcred->username, PBS_MAXUSER))
     {
     *autherr = strdup("Users do not match");
-    sprintf(error_msg, "%s: Requested user %s: credential user %s: requested from host %s",
+    snprintf(error_msg, sizeof(error_msg), "%s: Requested user %s: credential user %s: requested from host %s",
                    *autherr, preq->rq_user, pcred->username, preq->rq_host);
     log_event(PBSEVENT_ADMIN, PBS_EVENTCLASS_SERVER, __func__, error_msg);
     return(PBSE_BADCRED);
@@ -482,7 +482,7 @@ int authenticate_user(
       {
       *autherr = strdup("Hosts do not match");
       
-      sprintf(error_msg, "%s: Requested host %s: credential host: %s",
+      snprintf(error_msg, sizeof(error_msg), "%s: Requested host %s: credential host: %s",
         *autherr, preq->rq_host, pcred->hostname);
       log_event(PBSEVENT_ADMIN, PBS_EVENTCLASS_SERVER, __func__, error_msg);
     

@@ -140,6 +140,7 @@ int disrsi(
         locret = DIS_OVERFLOW;
         *retval = locret;
         }
+      /* fallthrough */
 
     case DIS_OVERFLOW:
 

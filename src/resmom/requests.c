@@ -1496,7 +1496,7 @@ void req_modifyjob(
 
   if (pjob == NULL)
     {
-    sprintf(tmpLine, "modify job failed, unknown job %s",
+    snprintf(tmpLine, sizeof(tmpLine), "modify job failed, unknown job %s",
             preq->rq_ind.rq_modify.rq_objname);
 
     req_reject(PBSE_UNKJOBID, 0, preq, mom_host, tmpLine);

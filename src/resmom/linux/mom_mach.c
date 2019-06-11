@@ -4987,7 +4987,7 @@ void scan_non_child_tasks(void)
 
         extern int exiting_tasks;
 
-        sprintf(buf, "found exited session %d for task %d in job %s",
+        snprintf(buf, sizeof(buf), "found exited session %d for task %d in job %s",
             pTask->ti_qs.ti_sid,
             pTask->ti_qs.ti_task,
             pJob->ji_qs.ji_jobid);
@@ -5110,7 +5110,7 @@ const char *idletime(
     if (strncmp(de->d_name, "tty", 3))
       continue;
 
-    sprintf(ttyname, "/dev/%s",
+    snprintf(ttyname, sizeof(ttyname), "/dev/%s",
             de->d_name);
 
     setmax(ttyname);

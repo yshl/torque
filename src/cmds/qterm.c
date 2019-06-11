@@ -88,6 +88,7 @@ int main(
       case 'l':
 
         local = true;
+	break;
 
       case 't':
 

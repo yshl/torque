@@ -3364,13 +3364,13 @@ void process_opts(
           print_qsub_usage_exit("qsub: illegal -l value");
 
           //If cpuclock gets set we need to set the node exclusive flag
-          {
+        {
           job_data *pData = NULL;
           if (hash_find(ji->res_attr,"cpuclock",&pData))
             {
             hash_add_or_exit(ji->job_attr, ATTR_node_exclusive, "TRUE", data_type);
             }
-          }
+        }
 
         break;
 

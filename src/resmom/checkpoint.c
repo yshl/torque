@@ -1107,7 +1107,7 @@ int blcr_checkpoint_job(
 
     /* remove checkpoint directory that was created for this checkpoint attempt */
 
-    sprintf(buf, "Checkpoint failed for job %s, removing checkpoint directory\n",
+    snprintf(buf, sizeof(buf), "Checkpoint failed for job %s, removing checkpoint directory\n",
         pjob->ji_qs.ji_jobid);
     log_ext(-1, __func__, buf, LOG_DEBUG);
 
@@ -1123,7 +1123,7 @@ int blcr_checkpoint_job(
 
       if (err != 0)
         {
-        sprintf(buf, "pbs_alterjob requested on job %s failed (%d-%s)\n",
+        snprintf(buf, sizeof(buf), "pbs_alterjob requested on job %s failed (%d-%s)\n",
             pjob->ji_qs.ji_jobid, err, pbs_strerror(err));
         log_err(-1, __func__, buf);
         if (err == PBSE_UNKJOBID)
@@ -1190,7 +1190,7 @@ int blcr_checkpoint_job(
 
       if (err != 0)
         {
-        sprintf(buf, "pbs_alterjob requested on job %s failed (%d-%s)\n",
+        snprintf(buf, sizeof(buf), "pbs_alterjob requested on job %s failed (%d-%s)\n",
             pjob->ji_qs.ji_jobid, err, pbs_strerror(err));
         log_err(-1, __func__, buf);
         if (err == PBSE_UNKJOBID)
@@ -1548,7 +1548,7 @@ int start_checkpoint(
        * to the pbs_server until the checkpoint has completed successfully.
        */
 
-      sprintf(name_buffer,"ckpt.%s.%d",
+      snprintf(name_buffer,sizeof(name_buffer),"ckpt.%s.%d",
         pjob->ji_qs.ji_jobid,
         (int)time_now);
 

@@ -6524,7 +6524,7 @@ void prepare_child_tasks_for_delete()
 
       extern int exiting_tasks;
 
-      sprintf(buf, "preparing exited session %d for task %d in job %s for deletion",
+      snprintf(buf, sizeof(buf), "preparing exited session %d for task %d in job %s for deletion",
               pTask->ti_qs.ti_sid,
               pTask->ti_qs.ti_task,
               pJob->ji_qs.ji_jobid);

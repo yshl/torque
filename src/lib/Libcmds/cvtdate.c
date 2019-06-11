@@ -168,6 +168,7 @@ time_t cvtdate(
       datestr += 2;
 
       /* no break, fall into next case */
+      /* fallthrough */
 
     case 10:  /* YYMMDDhhmm */
       buf[0] = datestr[0];
@@ -188,6 +189,7 @@ time_t cvtdate(
       datestr += 2;
 
       /* no break, fall into next case */
+      /* fallthrough */
 
     case 8:  /* MMDDhhmm */
       buf[0] = datestr[0];
@@ -210,6 +212,7 @@ time_t cvtdate(
       datestr += 2;
 
       /* no break, fall into next case */
+      /* fallthrough */
 
     case 6:  /* DDhhmm */
       buf[0] = datestr[0];
@@ -230,6 +233,7 @@ time_t cvtdate(
       datestr += 2;
 
       /* no break, fall into next case */
+      /* fallthrough */
 
     case 4:  /* hhmm */
       buf[0] = datestr[0];

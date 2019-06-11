@@ -1910,7 +1910,7 @@ void mom_server_diag(
 
   time(&Now);
 
-  sprintf(tmpLine, "Server[%d]: %s (%s)\n",
+  snprintf(tmpLine, sizeof(tmpLine), "Server[%d]: %s (%s)\n",
           sindex,
           pms->pbs_servername,
           netaddr(&(pms->sock_addr)));
@@ -1919,7 +1919,7 @@ void mom_server_diag(
 
   if (pms->MOMSendStatFailure[0] != '\0')
     {
-    sprintf(tmpLine, "  WARNING:  could not open connection to server, %s%s\n",
+    snprintf(tmpLine, sizeof(tmpLine), "  WARNING:  could not open connection to server, %s%s\n",
             pms->MOMSendStatFailure,
             (strstr(pms->MOMSendStatFailure, "cname") != NULL) ?
             " (check name resolution - /etc/hosts?)" :

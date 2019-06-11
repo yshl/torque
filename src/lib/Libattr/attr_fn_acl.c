@@ -502,6 +502,7 @@ int set_allacl(
       pas->as_next = pas->as_buf;
 
       /* No break, "Set" falls into "Incr" to add strings */
+      /* fallthrough */
 
     case INCR_OLD:
     case INCR:

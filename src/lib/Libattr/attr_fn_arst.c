@@ -533,6 +533,7 @@ int encode_arst(
         *pc++ = '\\';
 
         // escape sequence added. Fall through.
+	/* fallthrough */
 
       default:
 
@@ -735,6 +736,7 @@ int set_arst(
       pas->as_next = pas->as_buf;
 
       /* no break, "SET" falls into "MERGE" to add strings */
+      /* fallthrough */
 
     case INCR_OLD:
     case MERGE:
