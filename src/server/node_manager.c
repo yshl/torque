@@ -925,7 +925,7 @@ void process_legacy_job_attribute_information(
       char *attr_name = threadsafe_tokenizer(&attr_val, "=");
 
       if ((attr_name != NULL) &&
-          (attr_val != '\0'))
+          (attr_val != NULL))
         {
         if (str_to_attr(attr_name, attr_val, pjob->ji_wattr, job_attr_def, JOB_ATR_LAST) == ATTR_NOT_FOUND)
           {
