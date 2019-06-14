@@ -111,7 +111,7 @@ START_TEST(attempt_to_queue_job_on_mom_test)
   {
   bool b = true;
   bool timeout = true;
-  tlist_head h;
+  tlist_head h={NULL};
   int  my_err;
 
   fail_unless(attempt_to_queue_job_on_mom(strdup("1.napali"), 5, strdup("napali"), b, h, timeout, true, true, 5, "script", strdup("/out"), strdup("/err"), strdup("/chkpt"), MOVE_TYPE_Exec, &my_err) == LOCUTION_SUCCESS);

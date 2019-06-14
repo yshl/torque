@@ -53,7 +53,11 @@ int vasprintf(char **strp, const char *fmt, va_list ap);
 
 #ifndef HAVE_STDBOOL_H
 # ifndef bool
-#  define bool int
+#  ifdef __cplusplus
+typedef bool _Bool;
+#  else
+#    define bool int
+#  endif
 # endif
 # ifndef true
 #  define true 1
